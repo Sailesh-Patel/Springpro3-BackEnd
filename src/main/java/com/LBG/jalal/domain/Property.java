@@ -11,16 +11,17 @@ public class Property {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String address;
-	private String typeofproperty;
+	private String typeOfProperty;
 	private Integer bedrooms;
 	private Integer bathrooms;
 	private Boolean garden;
-	private String uploadimages;
-	private String propertystatus;
-//	private Seller seller;
+	private String uploadImages;
+	private String propertyStatus;
+//	need to link
+	private Seller seller;
 	private Integer price;
 
-//	jason file has offersinregionof instead of price
+//	json file has offersinregionof instead of price
 	public Property() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -42,12 +43,12 @@ public class Property {
 		this.address = address;
 	}
 
-	public String getTypeofproperty() {
-		return typeofproperty;
+	public String getTypeOfProperty() {
+		return typeOfProperty;
 	}
 
-	public void setTypeofproperty(String typeofproperty) {
-		this.typeofproperty = typeofproperty;
+	public void setTypeOfProperty(String typeOfProperty) {
+		this.typeOfProperty = typeOfProperty;
 	}
 
 	public Integer getBedrooms() {
@@ -66,7 +67,7 @@ public class Property {
 		this.bathrooms = bathrooms;
 	}
 
-	public Boolean isGarden() {
+	public Boolean getGarden() {
 		return garden;
 	}
 
@@ -74,20 +75,28 @@ public class Property {
 		this.garden = garden;
 	}
 
-	public String getUploadimages() {
-		return uploadimages;
+	public String getUploadImages() {
+		return uploadImages;
 	}
 
-	public void setUploadimages(String uploadimages) {
-		this.uploadimages = uploadimages;
+	public void setUploadImages(String uploadImages) {
+		this.uploadImages = uploadImages;
 	}
 
-	public String getPropertystatus() {
-		return propertystatus;
+	public String getPropertyStatus() {
+		return propertyStatus;
 	}
 
-	public void setPropertystatus(String propertystatus) {
-		this.propertystatus = propertystatus;
+	public void setPropertyStatus(String propertyStatus) {
+		this.propertyStatus = propertyStatus;
+	}
+
+	public Seller getSeller() {
+		return seller;
+	}
+
+	public void setSeller(Seller seller) {
+		this.seller = seller;
 	}
 
 	public Integer getPrice() {

@@ -15,6 +15,7 @@ public class Booking {
 	private Integer id;
 	private LocalDate date;
 	private LocalTime time;
+//	need to link
 	private Property property;
 
 	public Booking() {
