@@ -11,16 +11,17 @@ public class Property {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String address;
-	private String typeofproperty;
-	private int bedrooms;
-	private int bathrooms;
-	private boolean garden;
-	private String uploadimages;
-	private String propertystatus;
-//	private Seller seller;
-	private long price;
+	private String typeOfProperty;
+	private Integer bedrooms;
+	private Integer bathrooms;
+	private Boolean garden;
+	private String uploadImages;
+	private String propertyStatus;
+//	need to link
+	private Seller seller;
+	private Integer price;
 
-//	jason file has offersinregionof instead of price
+//	json file has offersinregionof instead of price
 	public Property() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -42,59 +43,67 @@ public class Property {
 		this.address = address;
 	}
 
-	public String getTypeofproperty() {
-		return typeofproperty;
+	public String getTypeOfProperty() {
+		return typeOfProperty;
 	}
 
-	public void setTypeofproperty(String typeofproperty) {
-		this.typeofproperty = typeofproperty;
+	public void setTypeOfProperty(String typeOfProperty) {
+		this.typeOfProperty = typeOfProperty;
 	}
 
-	public int getBedrooms() {
+	public Integer getBedrooms() {
 		return bedrooms;
 	}
 
-	public void setBedrooms(int bedrooms) {
+	public void setBedrooms(Integer bedrooms) {
 		this.bedrooms = bedrooms;
 	}
 
-	public int getBathrooms() {
+	public Integer getBathrooms() {
 		return bathrooms;
 	}
 
-	public void setBathrooms(int bathrooms) {
+	public void setBathrooms(Integer bathrooms) {
 		this.bathrooms = bathrooms;
 	}
 
-	public boolean isGarden() {
+	public Boolean getGarden() {
 		return garden;
 	}
 
-	public void setGarden(boolean garden) {
+	public void setGarden(Boolean garden) {
 		this.garden = garden;
 	}
 
-	public String getUploadimages() {
-		return uploadimages;
+	public String getUploadImages() {
+		return uploadImages;
 	}
 
-	public void setUploadimages(String uploadimages) {
-		this.uploadimages = uploadimages;
+	public void setUploadImages(String uploadImages) {
+		this.uploadImages = uploadImages;
 	}
 
-	public String getPropertystatus() {
-		return propertystatus;
+	public String getPropertyStatus() {
+		return propertyStatus;
 	}
 
-	public void setPropertystatus(String propertystatus) {
-		this.propertystatus = propertystatus;
+	public void setPropertyStatus(String propertyStatus) {
+		this.propertyStatus = propertyStatus;
 	}
 
-	public long getPrice() {
+	public Seller getSeller() {
+		return seller;
+	}
+
+	public void setSeller(Seller seller) {
+		this.seller = seller;
+	}
+
+	public Integer getPrice() {
 		return price;
 	}
 
-	public void setPrice(long price) {
+	public void setPrice(Integer price) {
 		this.price = price;
 	}
 

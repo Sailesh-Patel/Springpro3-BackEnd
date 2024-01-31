@@ -13,7 +13,7 @@ public class Buyer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String title;
-	private String firstname;
+	private String firstName;
 	private String surname;
 	private String tel;
 
@@ -24,7 +24,7 @@ public class Buyer {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(firstname, id, surname, tel, title);
+		return Objects.hash(firstName, id, surname, tel, title);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class Buyer {
 			return false;
 		}
 		Buyer other = (Buyer) obj;
-		return Objects.equals(firstname, other.firstname) && Objects.equals(id, other.id)
+		return Objects.equals(firstName, other.firstName) && Objects.equals(id, other.id)
 				&& Objects.equals(surname, other.surname) && Objects.equals(tel, other.tel)
 				&& Objects.equals(title, other.title);
 	}
@@ -60,12 +60,12 @@ public class Buyer {
 		this.title = title;
 	}
 
-	public String getFirstname() {
-		return firstname;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setFirstName(String firstname) {
+		this.firstName = firstname;
 	}
 
 	public String getSurname() {

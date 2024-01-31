@@ -9,15 +9,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Bookings {
+public class Booking {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private LocalDate date;
 	private LocalTime time;
+//	need to link
 	private Property property;
 
-	public Bookings() {
+	public Booking() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

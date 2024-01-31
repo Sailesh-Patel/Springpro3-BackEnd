@@ -11,7 +11,7 @@ public class Seller {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String title;
-	private String firstname;
+	private String firstName;
 	private String surname;
 	private String tel;
 
@@ -36,12 +36,12 @@ public class Seller {
 		this.title = title;
 	}
 
-	public String getFirstname() {
-		return firstname;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setFirstName(String firstname) {
+		this.firstName = firstname;
 	}
 
 	public String getSurname() {
