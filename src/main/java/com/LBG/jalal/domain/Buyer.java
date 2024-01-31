@@ -1,5 +1,7 @@
 package com.LBG.jalal.domain;
 
+import java.util.Objects;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,6 +20,28 @@ public class Buyer {
 	public Buyer() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(firstname, id, surname, tel, title);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		Buyer other = (Buyer) obj;
+		return Objects.equals(firstname, other.firstname) && Objects.equals(id, other.id)
+				&& Objects.equals(surname, other.surname) && Objects.equals(tel, other.tel)
+				&& Objects.equals(title, other.title);
 	}
 
 	public Integer getId() {
