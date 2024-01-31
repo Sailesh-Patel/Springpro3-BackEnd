@@ -37,7 +37,7 @@ public class SellerService {
 //		In React - Seller returned successfully - Entity Created
 	}
 
-	public List<Seller> displaySeller() {
+	public List<Seller> displaySellers() {
 		return this.sellerRepo.findAll();
 
 	}

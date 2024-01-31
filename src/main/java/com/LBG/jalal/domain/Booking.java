@@ -9,7 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Bookings {
+public class Booking {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -17,7 +17,7 @@ public class Bookings {
 	private LocalTime time;
 	private Property property;
 
-	public Bookings() {
+	public Booking() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
