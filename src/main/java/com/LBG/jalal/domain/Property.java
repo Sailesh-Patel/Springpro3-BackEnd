@@ -12,13 +12,13 @@ public class Property {
 	private Integer id;
 	private String address;
 	private String typeofproperty;
-	private int bedrooms;
-	private int bathrooms;
-	private boolean garden;
+	private Integer bedrooms;
+	private Integer bathrooms;
+	private Boolean garden;
 	private String uploadimages;
 	private String propertystatus;
 //	private Seller seller;
-	private long price;
+	private Integer price;
 
 //	jason file has offersinregionof instead of price
 	public Property() {
@@ -50,27 +50,27 @@ public class Property {
 		this.typeofproperty = typeofproperty;
 	}
 
-	public int getBedrooms() {
+	public Integer getBedrooms() {
 		return bedrooms;
 	}
 
-	public void setBedrooms(int bedrooms) {
+	public void setBedrooms(Integer bedrooms) {
 		this.bedrooms = bedrooms;
 	}
 
-	public int getBathrooms() {
+	public Integer getBathrooms() {
 		return bathrooms;
 	}
 
-	public void setBathrooms(int bathrooms) {
+	public void setBathrooms(Integer bathrooms) {
 		this.bathrooms = bathrooms;
 	}
 
-	public boolean isGarden() {
+	public Boolean isGarden() {
 		return garden;
 	}
 
-	public void setGarden(boolean garden) {
+	public void setGarden(Boolean garden) {
 		this.garden = garden;
 	}
 
@@ -90,11 +90,11 @@ public class Property {
 		this.propertystatus = propertystatus;
 	}
 
-	public long getPrice() {
+	public Integer getPrice() {
 		return price;
 	}
 
-	public void setPrice(long price) {
+	public void setPrice(Integer price) {
 		this.price = price;
 	}
 
