@@ -1,11 +1,15 @@
 package com.LBG.jalal.domain;
 
+import java.util.List;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Buyer {
@@ -17,9 +21,27 @@ public class Buyer {
 	private String surname;
 	private String tel;
 
+	@JsonManagedReference
+	@OneToMany
+	private List<Booking> bookings;
+
 	public Buyer() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @return the bookings
+	 */
+	public List<Booking> getBookings() {
+		return bookings;
+	}
+
+	/**
+	 * @param bookings the bookings to set
+	 */
+	public void setBookings(List<Booking> bookings) {
+		this.bookings = bookings;
 	}
 
 	@Override
