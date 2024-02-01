@@ -76,4 +76,18 @@ public class PropertyService {
 		return ResponseEntity.ok(updated);
 	}
 
+	public ResponseEntity<Property> displayProperty(int id) {
+
+		Optional<Property> found = this.propertyRepo.findById(id);
+
+		if (found.isEmpty()) {
+
+			return new ResponseEntity<Property>(HttpStatus.NOT_FOUND);
+		}
+
+		Property exsisitng = found.get();
+		return ResponseEntity.ok(exsisitng);
+
+	}
+
 }

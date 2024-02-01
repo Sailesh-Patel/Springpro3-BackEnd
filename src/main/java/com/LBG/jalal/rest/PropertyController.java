@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,8 +38,13 @@ public class PropertyController {
 	}
 
 //	Update property
-	@PatchMapping("/update")
-	public ResponseEntity<Property> updateProperty(int id, Property updatedProperty) {
+	@PatchMapping("/update/{id}")
+	public ResponseEntity<Property> updateProperty(@PathVariable int id, @RequestBody Property updatedProperty) {
 		return this.service.updateProperty(id, updatedProperty);
+	}
+
+	@GetMapping("/display/{id}")
+	public ResponseEntity<Property> displayProperty(@PathVariable int id) {
+		return this.service.displayProperty(id);
 	}
 }

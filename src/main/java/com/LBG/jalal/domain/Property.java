@@ -18,8 +18,7 @@ public class Property {
 	private String uploadImages;
 	private String propertyStatus;
 //	need to link
-//	@JsonBackReference
-//	@ManyToOne
+
 //	private Seller seller;
 	private Integer price;
 
@@ -93,13 +92,13 @@ public class Property {
 		this.propertyStatus = propertyStatus;
 	}
 
-	public Seller getSeller() {
-		return seller;
-	}
-
-	public void setSeller(Seller seller) {
-		this.seller = seller;
-	}
+//	public Seller getSeller() {
+//		return seller;
+//	}
+//
+//	public void setSeller(Seller seller) {
+//		this.seller = seller;
+//	}
 
 	public Integer getPrice() {
 		return price;
