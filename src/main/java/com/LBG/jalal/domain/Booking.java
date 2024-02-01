@@ -24,7 +24,7 @@ public class Booking {
 	private Property property;
 	@JsonBackReference
 	@ManyToOne
-	private Buyer buyers;
+	private Buyer buyer;
 
 	public Booking() {
 		super();
@@ -63,18 +63,12 @@ public class Booking {
 		this.property = property;
 	}
 
-	/**
-	 * @return the buyers
-	 */
-	public Buyer getBuyers() {
-		return buyers;
+	public Buyer getBuyer() {
+		return buyer;
 	}
 
-	/**
-	 * @param buyers the buyers to set
-	 */
-	public void setBuyers(Buyer buyers) {
-		this.buyers = buyers;
+	public void setBuyer(Buyer buyer) {
+		this.buyer = buyer;
 	}
 
 }

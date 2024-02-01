@@ -22,7 +22,7 @@ public class Buyer {
 	private String tel;
 
 	@JsonManagedReference
-	@OneToMany
+	@OneToMany(mappedBy = "buyer")
 	private List<Booking> bookings;
 
 	public Buyer() {
@@ -86,8 +86,8 @@ public class Buyer {
 		return firstName;
 	}
 
-	public void setFirstName(String firstname) {
-		this.firstName = firstname;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public String getSurname() {

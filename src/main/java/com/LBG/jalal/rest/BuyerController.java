@@ -27,8 +27,8 @@ public class BuyerController {
 		this.service = service;
 	}
 
-	@PostMapping("/create")
-	public ResponseEntity<Object> createBuyer(@RequestBody Buyer newBuyer) {
+	@PostMapping(value = "/create", consumes = { "application/json" })
+	public ResponseEntity<Buyer> createBuyer(@RequestBody Buyer newBuyer) {
 		return this.service.createBuyer(newBuyer);
 	}
 

@@ -1,12 +1,16 @@
 package com.LBG.jalal.domain;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Property {
@@ -21,10 +25,14 @@ public class Property {
 	private String uploadImages;
 	private String propertyStatus;
 //	need to link
-	@JsonManagedReference
-	@OneToOne
+	@JsonBackReference
+	@ManyToOne
 	private Seller seller;
 	private Integer price;
+
+	@JsonManagedReference
+	@OneToMany(mappedBy = "property")
+	private List<Booking> bookings;
 
 //	json file has offersinregionof instead of price
 	public Property() {
@@ -110,6 +118,14 @@ public class Property {
 
 	public void setPrice(Integer price) {
 		this.price = price;
+	}
+
+	public List<Booking> getBookings() {
+		return bookings;
+	}
+
+	public void setBookings(List<Booking> bookings) {
+		this.bookings = bookings;
 	}
 
 }
