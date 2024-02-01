@@ -1,12 +1,9 @@
 package com.LBG.jalal.domain;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
 
 @Entity
 public class Property {
@@ -21,9 +18,8 @@ public class Property {
 	private String uploadImages;
 	private String propertyStatus;
 //	need to link
-	@JsonManagedReference
-	@OneToOne
-	private Seller seller;
+
+//	private Seller seller;
 	private Integer price;
 
 //	json file has offersinregionof instead of price
@@ -94,14 +90,6 @@ public class Property {
 
 	public void setPropertyStatus(String propertyStatus) {
 		this.propertyStatus = propertyStatus;
-	}
-
-	public Seller getSeller() {
-		return seller;
-	}
-
-	public void setSeller(Seller seller) {
-		this.seller = seller;
 	}
 
 	public Integer getPrice() {

@@ -1,12 +1,9 @@
 package com.LBG.jalal.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
 
 @Entity
 public class Seller {
@@ -18,27 +15,11 @@ public class Seller {
 	private String surname;
 	private String tel;
 
-	@JsonBackReference
-	@OneToOne
-	private Property properties;
+//	private Property properties;
 
 	public Seller() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @return the properties
-	 */
-	public Property getProperties() {
-		return properties;
-	}
-
-	/**
-	 * @param properties the properties to set
-	 */
-	public void setProperties(Property properties) {
-		this.properties = properties;
 	}
 
 	public Integer getId() {
