@@ -16,7 +16,7 @@ public class Booking {
 	private LocalDate date;
 	private LocalTime time;
 //	need to link
-	private Property property;
+//	private Property property;
 
 	public Booking() {
 		super();

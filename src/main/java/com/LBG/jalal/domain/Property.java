@@ -18,7 +18,9 @@ public class Property {
 	private String uploadImages;
 	private String propertyStatus;
 //	need to link
-	private Seller seller;
+//	@JsonBackReference
+//	@ManyToOne
+//	private Seller seller;
 	private Integer price;
 
 //	json file has offersinregionof instead of price

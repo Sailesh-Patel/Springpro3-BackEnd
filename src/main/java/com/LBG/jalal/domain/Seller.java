@@ -14,6 +14,9 @@ public class Seller {
 	private String firstName;
 	private String surname;
 	private String tel;
+//	@JsonManagedReference
+//	@OneToMany
+//	List<Property> properties;
 
 	public Seller() {
 		super();
