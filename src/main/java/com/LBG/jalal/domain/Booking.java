@@ -3,10 +3,13 @@ package com.LBG.jalal.domain;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Booking {
@@ -16,7 +19,12 @@ public class Booking {
 	private LocalDate date;
 	private LocalTime time;
 //	need to link
-//	private Property property;
+	@JsonBackReference
+	@ManyToOne
+	private Property property;
+	@JsonBackReference
+	@ManyToOne
+	private Buyer buyers;
 
 	public Booking() {
 		super();
@@ -47,12 +55,26 @@ public class Booking {
 		this.time = time;
 	}
 
-//	public Property getProperty() {
-//		return property;
-//	}
-//
-//	public void setProperty(Property property) {
-//		this.property = property;
-//	}
+	public Property getProperty() {
+		return property;
+	}
+
+	public void setProperty(Property property) {
+		this.property = property;
+	}
+
+	/**
+	 * @return the buyers
+	 */
+	public Buyer getBuyers() {
+		return buyers;
+	}
+
+	/**
+	 * @param buyers the buyers to set
+	 */
+	public void setBuyers(Buyer buyers) {
+		this.buyers = buyers;
+	}
 
 }
