@@ -16,7 +16,7 @@ public class Booking {
 	private LocalDate date;
 	private LocalTime time;
 //	need to link
-	private Property property;
+//	private Property property;
 
 	public Booking() {
 		super();
@@ -47,12 +47,12 @@ public class Booking {
 		this.time = time;
 	}
 
-	public Property getProperty() {
-		return property;
-	}
-
-	public void setProperty(Property property) {
-		this.property = property;
-	}
+//	public Property getProperty() {
+//		return property;
+//	}
+//
+//	public void setProperty(Property property) {
+//		this.property = property;
+//	}
 
 }

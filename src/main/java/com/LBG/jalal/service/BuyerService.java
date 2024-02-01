@@ -24,7 +24,7 @@ public class BuyerService {
 		List<Buyer> buyers = this.buyerRepo.findAll();
 
 		for (Buyer buyer : buyers) {
-			if (newBuyer.getFirstname().equals(buyer.getFirstname())
+			if (newBuyer.getFirstName().equals(buyer.getFirstName())
 					&& (newBuyer.getSurname().equals(buyer.getSurname()))) {
 				return new ResponseEntity<Object>("Buyer Already Exists: ", HttpStatus.BAD_REQUEST);
 			}

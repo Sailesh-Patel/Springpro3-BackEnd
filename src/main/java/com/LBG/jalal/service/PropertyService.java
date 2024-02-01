@@ -43,8 +43,8 @@ public class PropertyService {
 			existing.setAddress(updatedProperty.getAddress());
 		}
 
-		if (updatedProperty.getTypeofproperty() != null) {
-			existing.setTypeofproperty(updatedProperty.getTypeofproperty());
+		if (updatedProperty.getTypeOfProperty() != null) {
+			existing.setTypeOfProperty(updatedProperty.getTypeOfProperty());
 		}
 
 		if (updatedProperty.getBedrooms() != null) {
@@ -55,16 +55,16 @@ public class PropertyService {
 			existing.setBathrooms(updatedProperty.getBathrooms());
 		}
 
-		if (updatedProperty.isGarden() != null) {
-			existing.setGarden(updatedProperty.isGarden());
+		if (updatedProperty.getGarden() != null) {
+			existing.setGarden(updatedProperty.getGarden());
 		}
 
-		if (updatedProperty.getUploadimages() != null) {
-			existing.setUploadimages(updatedProperty.getUploadimages());
+		if (updatedProperty.getUploadImages() != null) {
+			existing.setUploadImages(updatedProperty.getUploadImages());
 		}
 
-		if (updatedProperty.getPropertystatus() != null) {
-			existing.setPropertystatus(updatedProperty.getPropertystatus());
+		if (updatedProperty.getPropertyStatus() != null) {
+			existing.setPropertyStatus(updatedProperty.getPropertyStatus());
 		}
 
 		if (updatedProperty.getPrice() != null) {
@@ -74,6 +74,20 @@ public class PropertyService {
 		Property updated = this.propertyRepo.save(existing);
 
 		return ResponseEntity.ok(updated);
+	}
+
+	public ResponseEntity<Property> displayProperty(int id) {
+
+		Optional<Property> found = this.propertyRepo.findById(id);
+
+		if (found.isEmpty()) {
+
+			return new ResponseEntity<Property>(HttpStatus.NOT_FOUND);
+		}
+
+		Property exsisitng = found.get();
+		return ResponseEntity.ok(exsisitng);
+
 	}
 
 }
