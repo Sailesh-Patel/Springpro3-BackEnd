@@ -18,7 +18,7 @@ public class Property {
 	private String uploadImages;
 	private String propertyStatus;
 //	need to link
-	private Seller seller;
+//	private Seller seller;
 	private Integer price;
 
 //	json file has offersinregionof instead of price
@@ -91,13 +91,13 @@ public class Property {
 		this.propertyStatus = propertyStatus;
 	}
 
-	public Seller getSeller() {
-		return seller;
-	}
-
-	public void setSeller(Seller seller) {
-		this.seller = seller;
-	}
+//	public Seller getSeller() {
+//		return seller;
+//	}
+//
+//	public void setSeller(Seller seller) {
+//		this.seller = seller;
+//	}
 
 	public Integer getPrice() {
 		return price;
