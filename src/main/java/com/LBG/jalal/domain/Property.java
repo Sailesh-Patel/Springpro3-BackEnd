@@ -2,9 +2,6 @@ package com.LBG.jalal.domain;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,16 +22,29 @@ public class Property {
 	private String uploadImages;
 	private String propertyStatus;
 //	need to link
-	@JsonBackReference
+
 	@ManyToOne
 	private Seller seller;
 	private Integer price;
 
-	@JsonManagedReference
 	@OneToMany(mappedBy = "property")
 	private List<Booking> bookings;
 
-//	json file has offersinregionof instead of price
+	/**
+	 * @return the seller
+	 */
+	public Seller getSeller() {
+		return seller;
+	}
+
+	/**
+	 * @param seller the seller to set
+	 */
+	public void setSeller(Seller seller) {
+		this.seller = seller;
+	}
+
+	// json file has offersinregionof instead of price
 	public Property() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -104,13 +114,13 @@ public class Property {
 		this.propertyStatus = propertyStatus;
 	}
 
-	public Seller getSeller() {
-		return seller;
-	}
-
-	public void setSeller(Seller seller) {
-		this.seller = seller;
-	}
+//	public Seller getSeller() {
+//		return seller;
+//	}
+//
+//	public void setSeller(Seller seller) {
+//		this.seller = seller;
+//	}
 
 	public Integer getPrice() {
 		return price;
