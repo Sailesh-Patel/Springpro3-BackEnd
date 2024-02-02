@@ -1,17 +1,22 @@
 package com.LBG.jalal.domain;
 
+
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+
+
 
 @Entity
 @JsonIgnoreProperties("inspection")
@@ -27,9 +32,12 @@ public class Property {
 	private String uploadImages;
 	private String propertyStatus;
 //	need to link
+
 	@JsonBackReference(value = "propertySoldBy")
 	@ManyToOne
 	private Seller seller;
+
+
 	private Integer price;
 	@JsonManagedReference(value = "propertyToView")
 	@OneToMany(mappedBy = "property")
@@ -118,6 +126,7 @@ public class Property {
 	public void setPropertyStatus(String propertyStatus) {
 		this.propertyStatus = propertyStatus;
 	}
+
 
 //	public Seller getSeller() {
 //		return seller;
