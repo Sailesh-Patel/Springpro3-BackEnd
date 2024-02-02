@@ -2,7 +2,6 @@ package com.LBG.jalal.service;
 
 import java.util.List;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -19,17 +18,17 @@ public class BuyerService {
 		this.buyerRepo = buyerRepo;
 	}
 
-	public ResponseEntity<Object> createBuyer(Buyer newBuyer) {
+	public ResponseEntity<Buyer> createBuyer(Buyer newBuyer) {
 
 		List<Buyer> buyers = this.buyerRepo.findAll();
 
-		for (Buyer buyer : buyers) {
-			if (newBuyer.getFirstName().equals(buyer.getFirstName())
-					&& (newBuyer.getSurname().equals(buyer.getSurname()))) {
-				return new ResponseEntity<Object>("Buyer Already Exists: ", HttpStatus.BAD_REQUEST);
-			}
+//		for (Buyer buyer : buyers) {
+//			if (newBuyer.getFirstName().equals(buyer.getFirstName())
+//					&& (newBuyer.getSurname().equals(buyer.getSurname()))) {
+//				return new ResponseEntity<Object>("Buyer Already Exists: ", HttpStatus.BAD_REQUEST);
+//			}
 
-		}
+		// }
 
 		Buyer Created = this.buyerRepo.save(newBuyer);
 		return ResponseEntity.ok(Created);

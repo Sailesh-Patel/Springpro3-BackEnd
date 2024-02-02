@@ -1,11 +1,18 @@
 package com.LBG.jalal.domain;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
+@JsonIgnoreProperties("inspection")
 public class Seller {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,32 +21,23 @@ public class Seller {
 	private String firstName;
 	private String surname;
 	private String tel;
-//	@JsonManagedReference
-//	@OneToMany
-//	List<Property> properties;
 
-//	@JsonBackReference
-//	@OneToOne
-//	private Property properties;
+	@JsonManagedReference(value = "propertySoldBy")
+	@OneToMany(mappedBy = "seller")
+	private List<Property> properties;
 
 	public Seller() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @return the properties
-	 */
-//	public Property getProperties() {
-//		return properties;
-//	}
+	public List<Property> getProperties() {
+		return properties;
+	}
 
-	/**
-	 * @param properties the properties to set
-	 */
-//	public void setProperties(Property properties) {
-//		this.properties = properties;
-//	}
+	public void setProperties(List<Property> properties) {
+		this.properties = properties;
+	}
 
 	public Integer getId() {
 		return id;

@@ -9,10 +9,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
+
 public class Booking {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,14 +20,14 @@ public class Booking {
 	private LocalDate date;
 	private LocalTime time;
 //	need to link
-	@JsonBackReference
+
+	@JsonBackReference(value = "propertyToView")
 	@ManyToOne
 	private Property property;
-//	@JsonManagedReference
-//	@JsonBackReference
+
+	@JsonBackReference(value = "bookingMadeBy")
 	@ManyToOne
-	@JoinColumn(name = "buyer-id")
-	Buyer buyer;
+	private Buyer buyer;
 
 	public Booking() {
 		super();

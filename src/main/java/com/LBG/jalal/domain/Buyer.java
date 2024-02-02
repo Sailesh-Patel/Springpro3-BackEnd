@@ -2,6 +2,9 @@ package com.LBG.jalal.domain;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
 @Entity
+@JsonIgnoreProperties("inspection")
 public class Buyer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,10 +21,11 @@ public class Buyer {
 	private String firstName;
 	private String surname;
 	private String tel;
-//	@JsonBackReference
-//	@JsonManagedReference
+
+	@JsonManagedReference(value = "bookingMadeBy")
 	@OneToMany(mappedBy = "buyer")
-	List<Booking> bookings;
+
+	private List<Booking> bookings;
 
 	public Buyer() {
 		super();
@@ -55,8 +60,8 @@ public class Buyer {
 		return firstName;
 	}
 
-	public void setFirstName(String firstname) {
-		this.firstName = firstname;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public String getSurname() {

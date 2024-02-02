@@ -2,15 +2,19 @@ package com.LBG.jalal.domain;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 @Entity
+@JsonIgnoreProperties("inspection")
 public class Property {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,7 +46,29 @@ public class Property {
 
 	private Integer price;
 
-//	json file has offersinregionof instead of price
+	@JsonBackReference(value = "propertySoldBy")
+	@ManyToOne
+	private Seller seller;
+
+	@JsonManagedReference(value = "propertyToView")
+	@OneToMany(mappedBy = "property")
+	private List<Booking> bookings;
+
+	/**
+	 * @return the seller
+	 */
+	public Seller getSeller() {
+		return seller;
+	}
+
+	/**
+	 * @param seller the seller to set
+	 */
+	public void setSeller(Seller seller) {
+		this.seller = seller;
+	}
+
+	// json file has offersinregionof instead of price
 	public Property() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -126,6 +152,14 @@ public class Property {
 
 	public void setPrice(Integer price) {
 		this.price = price;
+	}
+
+	public List<Booking> getBookings() {
+		return bookings;
+	}
+
+	public void setBookings(List<Booking> bookings) {
+		this.bookings = bookings;
 	}
 
 }
