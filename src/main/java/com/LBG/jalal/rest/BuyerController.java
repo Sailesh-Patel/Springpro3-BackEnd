@@ -28,7 +28,7 @@ public class BuyerController {
 	}
 
 	@PostMapping("/create")
-	public ResponseEntity<Object> createBuyer(@RequestBody Buyer newBuyer) {
+	public ResponseEntity<Buyer> createBuyer(@RequestBody Buyer newBuyer) {
 		return this.service.createBuyer(newBuyer);
 	}
 

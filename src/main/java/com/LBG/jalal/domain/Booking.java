@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
+
 public class Booking {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,9 +18,13 @@ public class Booking {
 	private LocalTime time;
 //	need to link
 
-//	private Property property;
+	@JsonBackReference(value = "propertyToView")
+	@ManyToOne
+	private Property property;
+	@JsonBackReference(value = "bookingMadeBy")
+	@ManyToOne
+	private Buyer buyer;
 
-//	private Buyer buyers;
 
 	public Booking() {
 		super();
@@ -49,5 +54,24 @@ public class Booking {
 	public void setTime(LocalTime time) {
 		this.time = time;
 	}
+
+
+	public Property getProperty() {
+		return property;
+	}
+
+	public void setProperty(Property property) {
+		this.property = property;
+	}
+
+	public Buyer getBuyer() {
+		return buyer;
+	}
+
+	public void setBuyer(Buyer buyer) {
+		this.buyer = buyer;
+	}
+
+
 
 }
