@@ -90,4 +90,10 @@ public class PropertyService {
 
 	}
 
+	public boolean deleteProperty(int id) {
+		this.propertyRepo.deleteById(id);
+		return !this.propertyRepo.existsById(id);
+
+	}
+
 }
