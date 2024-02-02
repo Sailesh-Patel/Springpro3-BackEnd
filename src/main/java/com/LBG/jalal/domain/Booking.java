@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
@@ -22,9 +23,11 @@ public class Booking {
 	@JsonBackReference
 	@ManyToOne
 	private Property property;
-	@JsonBackReference
+//	@JsonManagedReference
+//	@JsonBackReference
 	@ManyToOne
-	private Buyer buyers;
+	@JoinColumn(name = "buyer-id")
+	Buyer buyer;
 
 	public Booking() {
 		super();
@@ -63,18 +66,12 @@ public class Booking {
 		this.property = property;
 	}
 
-	/**
-	 * @return the buyers
-	 */
-	public Buyer getBuyers() {
-		return buyers;
+	public Buyer getBuyer() {
+		return buyer;
 	}
 
-	/**
-	 * @param buyers the buyers to set
-	 */
-	public void setBuyers(Buyer buyers) {
-		this.buyers = buyers;
+	public void setBuyer(Buyer buyer) {
+		this.buyer = buyer;
 	}
 
 }
