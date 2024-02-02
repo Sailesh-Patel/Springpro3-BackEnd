@@ -3,6 +3,7 @@ package com.LBG.jalal.domain;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,7 +21,7 @@ public class Seller {
 	private String firstName;
 	private String surname;
 	private String tel;
-
+	@JsonManagedReference(value = "propertySoldBy")
 	@OneToMany(mappedBy = "seller")
 	private List<Property> properties;
 

@@ -3,7 +3,7 @@ package com.LBG.jalal.domain;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,7 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-@JsonIgnoreProperties("inspection")
+
 public class Booking {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,10 +20,10 @@ public class Booking {
 	private LocalDate date;
 	private LocalTime time;
 //	need to link
-
+	@JsonBackReference(value = "propertyToView")
 	@ManyToOne
 	private Property property;
-
+	@JsonBackReference(value = "bookingMadeBy")
 	@ManyToOne
 	private Buyer buyer;
 
