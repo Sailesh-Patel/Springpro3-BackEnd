@@ -2,15 +2,15 @@ package com.LBG.jalal.domain;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 @Entity
@@ -20,59 +20,52 @@ public class Property {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String address;
+	private String location;
 	private String typeOfProperty;
 	private Integer bedrooms;
 	private Integer bathrooms;
-	private Boolean garden;
+	private String garden;
 	private String uploadImages;
 	private String propertyStatus;
 //	need to link
 
 //	@JsonManagedReference
-//	@OneToOne
+//	@ManyToOne
 //	private Seller seller;
 
 	@JsonManagedReference
+	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
+	@JsonIgnore
 	@OneToMany(mappedBy = "property")
-	List<Booking> booking;
+	List<Booking> bookings;
 
-	public List<Booking> getBooking() {
-		return booking;
-	}
-
-	public void setBooking(List<Booking> booking) {
-		this.booking = booking;
-	}
-
-	private Integer price;
-
-	@JsonBackReference(value = "propertySoldBy")
-	@ManyToOne
-	private Seller seller;
-
-	@JsonManagedReference(value = "propertyToView")
-	@OneToMany(mappedBy = "property")
-	private List<Booking> bookings;
-
-	/**
-	 * @return the seller
-	 */
-	public Seller getSeller() {
-		return seller;
-	}
-
-	/**
-	 * @param seller the seller to set
-	 */
-	public void setSeller(Seller seller) {
-		this.seller = seller;
-	}
-
-	// json file has offersinregionof instead of price
 	public Property() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+	public List<Booking> getBookings() {
+		return bookings;
+	}
+
+	public void setBooking(List<Booking> bookings) {
+		this.bookings = bookings;
+	}
+
+	private Integer price;
+
+//	public Seller getSeller() {
+//		return seller;
+//	}
+//
+//	/**
+//	 * @param seller the seller to set
+//	 */
+//	public void setSeller(Seller seller) {
+//		this.seller = seller;
+//	}
+
+	// json file has offersinregionof instead of price
 
 	public Integer getId() {
 		return id;
@@ -114,16 +107,28 @@ public class Property {
 		this.bathrooms = bathrooms;
 	}
 
-	public Boolean getGarden() {
+	public String getGarden() {
 		return garden;
 	}
 
-	public void setGarden(Boolean garden) {
+	public void setGarden(String garden) {
 		this.garden = garden;
 	}
 
 	public String getUploadImages() {
 		return uploadImages;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public void setBookings(List<Booking> bookings) {
+		this.bookings = bookings;
 	}
 
 	public void setUploadImages(String uploadImages) {
@@ -152,14 +157,6 @@ public class Property {
 
 	public void setPrice(Integer price) {
 		this.price = price;
-	}
-
-	public List<Booking> getBookings() {
-		return bookings;
-	}
-
-	public void setBookings(List<Booking> bookings) {
-		this.bookings = bookings;
 	}
 
 }

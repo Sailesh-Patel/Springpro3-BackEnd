@@ -58,6 +58,9 @@ public class PropertyService {
 		if (updatedProperty.getGarden() != null) {
 			existing.setGarden(updatedProperty.getGarden());
 		}
+		if (updatedProperty.getLocation() != null) {
+			existing.setLocation(updatedProperty.getGarden());
+		}
 
 		if (updatedProperty.getUploadImages() != null) {
 			existing.setUploadImages(updatedProperty.getUploadImages());

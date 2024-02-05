@@ -29,7 +29,8 @@ public class PropertyController {
 	}
 
 //	create property
-	@PostMapping("/create")
+//	@PostMapping("/create")
+	@PostMapping(path = "/create", consumes = "application/json;charset=UTF-8")
 	public Property createProperty(@RequestBody Property newProperty) {
 		return this.service.createProperty(newProperty);
 	}
