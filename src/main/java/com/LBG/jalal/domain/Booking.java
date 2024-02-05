@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,12 +24,10 @@ public class Booking {
 
 	@JsonBackReference(value = "propertyToView")
 	@ManyToOne
-	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
 	private Property property;
 
 	@JsonBackReference(value = "bookingMadeBy")
 	@ManyToOne
-	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
 	private Buyer buyer;
 
 	public Booking() {

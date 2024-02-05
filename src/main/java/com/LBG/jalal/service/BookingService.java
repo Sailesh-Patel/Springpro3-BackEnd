@@ -1,5 +1,6 @@
 package com.LBG.jalal.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -7,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.LBG.jalal.domain.Booking;
+import com.LBG.jalal.dto.BookingDTO;
 import com.LBG.jalal.repo.BookingRepo;
 
 @Service
@@ -32,8 +34,25 @@ public class BookingService {
 		return ResponseEntity.ok(created);
 	}
 
-	public List<Booking> displayBookings() {
-		return this.bookingRepo.findAll();
+	public List<BookingDTO> displayBookings() {
+		List<Booking> bookings = this.bookingRepo.findAll();
+
+		List<BookingDTO> dtos = new ArrayList<>();
+
+		for (Booking booking : bookings) {
+			BookingDTO dto = new BookingDTO();
+
+			dto.setId(booking.getId());
+			dto.setBuyerName(booking.getBuyer().getFirstName() + " " + booking.getBuyer().getSurname());
+			dto.setDate(booking.getDate());
+			dto.setTime(booking.getTime());
+			dto.setProperty(booking.getProperty().getId());
+
+			dtos.add(dto);
+
+		}
+
+		return dtos;
 	}
 
 	public boolean deleteBooking(int id) {

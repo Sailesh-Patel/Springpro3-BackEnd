@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.LBG.jalal.domain.Booking;
+import com.LBG.jalal.dto.BookingDTO;
 import com.LBG.jalal.service.BookingService;
 
 //import io.swagger.v3.oas.annotations.parameters.RequestBody;
@@ -42,7 +43,7 @@ public class BookingController {
 	}
 
 	@GetMapping("/display")
-	public List<Booking> displayBookings() {
+	public List<BookingDTO> displayBookings() {
 		return this.service.displayBookings();
 	}
 
