@@ -1,10 +1,10 @@
 package com.LBG.jalal.domain;
 
 import java.util.List;
-import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,7 +25,7 @@ public class Buyer {
 
 	@JsonManagedReference(value = "bookingMadeBy")
 	@OneToMany(mappedBy = "buyer")
-
+	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
 	private List<Booking> bookings;
 
 	public Buyer() {
@@ -33,40 +33,12 @@ public class Buyer {
 		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @return the bookings
-	 */
 	public List<Booking> getBookings() {
 		return bookings;
 	}
 
-	/**
-	 * @param bookings the bookings to set
-	 */
 	public void setBookings(List<Booking> bookings) {
 		this.bookings = bookings;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(firstName, id, surname, tel, title);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (getClass() != obj.getClass()) {
-			return false;
-		}
-		Buyer other = (Buyer) obj;
-		return Objects.equals(firstName, other.firstName) && Objects.equals(id, other.id)
-				&& Objects.equals(surname, other.surname) && Objects.equals(tel, other.tel)
-				&& Objects.equals(title, other.title);
 	}
 
 	public Integer getId() {
