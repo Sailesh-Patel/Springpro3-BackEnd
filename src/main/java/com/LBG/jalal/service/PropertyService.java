@@ -58,6 +58,9 @@ public class PropertyService {
 		if (updatedProperty.getGarden() != null) {
 			existing.setGarden(updatedProperty.getGarden());
 		}
+		if (updatedProperty.getLocation() != null) {
+			existing.setLocation(updatedProperty.getGarden());
+		}
 
 		if (updatedProperty.getUploadImages() != null) {
 			existing.setUploadImages(updatedProperty.getUploadImages());
@@ -87,6 +90,12 @@ public class PropertyService {
 
 		Property exsisitng = found.get();
 		return ResponseEntity.ok(exsisitng);
+
+	}
+
+	public boolean deleteProperty(int id) {
+		this.propertyRepo.deleteById(id);
+		return !this.propertyRepo.existsById(id);
 
 	}
 

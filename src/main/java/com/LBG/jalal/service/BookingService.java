@@ -22,15 +22,14 @@ public class BookingService {
 	public ResponseEntity<Object> createBooking(Booking newBooking) {
 
 		List<Booking> bookings = this.bookingRepo.findAll();
-
 		for (Booking booking : bookings) {
 			if (newBooking.getDate().equals(booking.getDate()) && (newBooking.getTime().equals(booking.getTime()))) {
-				return new ResponseEntity<Object>("Booking Slot Not Available: ", HttpStatus.BAD_REQUEST);
+				return new ResponseEntity<Object>("Booking already exists", HttpStatus.BAD_REQUEST);
 			}
 		}
 
-		Booking Created = this.bookingRepo.save(newBooking);
-		return ResponseEntity.ok(Created);
+		Booking created = this.bookingRepo.save(newBooking);
+		return ResponseEntity.ok(created);
 	}
 
 	public List<Booking> displayBookings() {

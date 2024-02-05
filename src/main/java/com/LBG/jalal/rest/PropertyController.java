@@ -3,6 +3,8 @@ package com.LBG.jalal.rest;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +18,7 @@ import com.LBG.jalal.service.PropertyService;
 
 @RestController
 @RequestMapping("/property")
+@CrossOrigin
 public class PropertyController {
 
 	private PropertyService service;
@@ -26,7 +29,8 @@ public class PropertyController {
 	}
 
 //	create property
-	@PostMapping("/create")
+//	@PostMapping("/create")
+	@PostMapping(path = "/create", consumes = "application/json;charset=UTF-8")
 	public Property createProperty(@RequestBody Property newProperty) {
 		return this.service.createProperty(newProperty);
 	}
@@ -47,4 +51,10 @@ public class PropertyController {
 	public ResponseEntity<Property> displayProperty(@PathVariable int id) {
 		return this.service.displayProperty(id);
 	}
+
+	@DeleteMapping("/remove/{id}")
+	public boolean deleteBuyer(@PathVariable int id) {
+		return this.service.deleteProperty(id);
+	}
+
 }
