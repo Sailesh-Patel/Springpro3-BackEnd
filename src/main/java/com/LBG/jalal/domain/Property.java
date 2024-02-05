@@ -27,7 +27,6 @@ public class Property {
 	private String garden;
 	private String uploadImages;
 	private String propertyStatus;
-//	need to link
 
 //	@JsonManagedReference
 //	@ManyToOne

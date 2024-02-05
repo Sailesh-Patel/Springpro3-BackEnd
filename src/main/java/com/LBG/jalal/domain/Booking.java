@@ -19,13 +19,9 @@ public class Booking {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-//	private LocalDate date;
-//	private LocalTime time;
-//	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate date;
 
 	private LocalTime time;
-//	need to link
 
 	@JsonBackReference(value = "propertyToView")
 	@ManyToOne
