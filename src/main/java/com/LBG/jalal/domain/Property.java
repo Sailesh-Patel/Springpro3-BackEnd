@@ -26,8 +26,7 @@ public class Property {
 	private String uploadImages;
 	private String propertyStatus;
 
-	@JsonManagedReference
-
+	@JsonManagedReference(value = "propertyToView")
 	@OneToMany(mappedBy = "property")
 	List<Booking> bookings;
 
