@@ -2,10 +2,8 @@ package com.LBG.jalal.domain;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,13 +26,8 @@ public class Property {
 	private String uploadImages;
 	private String propertyStatus;
 
-//	@JsonManagedReference
-//	@ManyToOne
-//	private Seller seller;
-
 	@JsonManagedReference
-	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
-	@JsonIgnore
+
 	@OneToMany(mappedBy = "property")
 	List<Booking> bookings;
 
@@ -45,10 +38,6 @@ public class Property {
 
 	public List<Booking> getBookings() {
 		return bookings;
-	}
-
-	public void setBooking(List<Booking> bookings) {
-		this.bookings = bookings;
 	}
 
 	private Integer price;

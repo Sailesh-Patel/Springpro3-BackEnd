@@ -18,22 +18,10 @@ public class Seller {
 	private String surname;
 	private String tel;
 
-//	@JsonManagedReference(value = "propertySoldBy")
-//	@OneToMany(mappedBy = "seller")
-//	private List<Property> properties;
-
 	public Seller() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-//	public List<Property> getProperties() {
-//		return properties;
-//	}
-//
-//	public void setProperties(List<Property> properties) {
-//		this.properties = properties;
-//	}
 
 	public Integer getId() {
 		return id;

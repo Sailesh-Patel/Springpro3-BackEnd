@@ -63,4 +63,10 @@ public class BookingService {
 
 	}
 
+	public void bookingByProp(int id) {
+
+		this.bookingRepo.findById(id);
+
+		return;
+	}
 }
