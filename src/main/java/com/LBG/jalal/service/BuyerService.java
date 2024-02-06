@@ -31,8 +31,8 @@ public class BuyerService {
 
 		}
 
-		Buyer Created = this.buyerRepo.save(newBuyer);
-		return ResponseEntity.ok(Created);
+		Buyer created = this.buyerRepo.save(newBuyer);
+		return ResponseEntity.ok(created);
 
 //		In React - Buyer returned successfully - Entity Created
 	}

@@ -1,11 +1,14 @@
 package com.LBG.jalal.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
+@JsonIgnoreProperties("inspection")
 public class Seller {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,9 +17,6 @@ public class Seller {
 	private String firstName;
 	private String surname;
 	private String tel;
-//	@JsonManagedReference
-//	@OneToMany
-//	List<Property> properties;
 
 	public Seller() {
 		super();
