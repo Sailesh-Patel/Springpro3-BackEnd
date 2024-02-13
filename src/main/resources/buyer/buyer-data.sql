@@ -1,0 +1,1 @@
+INSERT INTO `buyer` VALUES (default, 'Mr', 'Piers', 'Barber', '01234568999');
