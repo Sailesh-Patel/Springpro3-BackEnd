@@ -1,0 +1,1 @@
+INSERT INTO `seller` VALUES (default, 'Mr', 'Jordan', 'Harrison', '01234567999');
