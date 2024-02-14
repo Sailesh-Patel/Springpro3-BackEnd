@@ -1,4 +1,5 @@
-CREATE TABLE IF NOT EXISTS `seller`(
+DROP TABLE `seller`;
+CREATE TABLE `seller`(
 	`id` INT PRIMARY KEY AUTO_INCREMENT,
 	`title` VARCHAR(255),
 	`first_name` VARCHAR(255),
