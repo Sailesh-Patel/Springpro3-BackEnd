@@ -70,14 +70,9 @@ public class SellerTest {
 				.findElement(By.cssSelector("#root > div > div > div > fieldset > form > div > button"));
 		submit.click();
 
-		Thread.sleep(500);
+		Thread.sleep(800);
 		WebElement displaySellers = this.driver.findElement(By.cssSelector("#root > div > div > div > button"));
 		displaySellers.click();
-
-//		this.driver.navigate().refresh();
-
-//		WebElement displaySellers = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("getSellersButton")));
-//		displaySellers.click();
 
 		WebElement resultTitle = this.driver
 				.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[2]/div/div/div/p[1]"));
@@ -96,32 +91,32 @@ public class SellerTest {
 		Assertions.assertEquals("Tel: 01234567998", resultTel.getText());
 	}
 
-//	@Test
-//	@Order(1)
-//	void testGetSeller() {
-//		this.driver.get("http://localhost:" + this.port);
-//		WebElement sellerButton = this.driver
-//				.findElement(By.cssSelector("#root > div > div > header > nav > div.App-nav > a:nth-child(3)"));
-//		sellerButton.click();
-//
-//		WebElement displaySellers = this.driver.findElement(By.cssSelector("#root > div > div > div > button"));
-//		displaySellers.click();
-//
-//		WebElement resultTitle = this.driver.findElement(By.cssSelector(
-//				"#root > div > div > div > div > div > div:nth-child(2) > div > div > div > p.card-title"));
-//		Assertions.assertEquals("Title: Mr", resultTitle.getText());
-//
-//		WebElement resultFirstName = this.driver.findElement(By.cssSelector(
-//				"#root > div > div > div > div > div > div:nth-child(2) > div > div > div > p:nth-child(2)"));
-//		Assertions.assertEquals("First Name: Jordan", resultFirstName.getText());
-//
-//		WebElement resultSurname = this.driver.findElement(By.cssSelector(
-//				"#root > div > div > div > div > div > div:nth-child(2) > div > div > div > p:nth-child(3)"));
-//		Assertions.assertEquals("Surname: Harrison", resultSurname.getText());
-//
-//		WebElement resultTel = this.driver.findElement(By.cssSelector(
-//				"#root > div > div > div > div > div > div:nth-child(2) > div > div > div > p:nth-child(4)"));
-//		Assertions.assertEquals("Tel: 01234567999", resultTel.getText());
-//	}
+	@Test
+	@Order(1)
+	void testGetSeller() {
+		this.driver.get("http://localhost:" + this.port);
+		WebElement sellerButton = this.driver
+				.findElement(By.cssSelector("#root > div > div > header > nav > div.App-nav > a:nth-child(3)"));
+		sellerButton.click();
+
+		WebElement displaySellers = this.driver.findElement(By.cssSelector("#root > div > div > div > button"));
+		displaySellers.click();
+
+		WebElement resultTitle = this.driver.findElement(By.cssSelector(
+				"#root > div > div > div > div > div > div:nth-child(2) > div > div > div > p.card-title"));
+		Assertions.assertEquals("Title: Mr", resultTitle.getText());
+
+		WebElement resultFirstName = this.driver.findElement(By.cssSelector(
+				"#root > div > div > div > div > div > div:nth-child(2) > div > div > div > p:nth-child(2)"));
+		Assertions.assertEquals("First Name: Jordan", resultFirstName.getText());
+
+		WebElement resultSurname = this.driver.findElement(By.cssSelector(
+				"#root > div > div > div > div > div > div:nth-child(2) > div > div > div > p:nth-child(3)"));
+		Assertions.assertEquals("Surname: Harrison", resultSurname.getText());
+
+		WebElement resultTel = this.driver.findElement(By.cssSelector(
+				"#root > div > div > div > div > div > div:nth-child(2) > div > div > div > p:nth-child(4)"));
+		Assertions.assertEquals("Tel: 01234567999", resultTel.getText());
+	}
 
 }
