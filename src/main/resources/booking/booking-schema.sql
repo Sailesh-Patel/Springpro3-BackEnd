@@ -1,6 +1,6 @@
-DROP TABLE `buyer`;
-DROP TABLE `property`;
-DROP TABLE `booking`;
+DROP TABLE `buyer`CASCADE;
+DROP TABLE `property`CASCADE;
+DROP TABLE `booking` CASCADE;
 CREATE TABLE `booking` (
 	`id` INT PRIMARY KEY AUTO_INCREMENT,
 	`date` DATE,
