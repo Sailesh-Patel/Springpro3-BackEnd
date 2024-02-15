@@ -21,8 +21,8 @@ import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 
 @SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
 @TestMethodOrder(OrderAnnotation.class)
-@Sql(scripts = { "classpath:seller/seller-schema.sql",
-		"classpath:seller/seller-data.sql" }, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
+@Sql(scripts = { "classpath:estate-schema.sql",
+		"classpath:estate-data.sql" }, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
 
 public class SellerTest {
 
