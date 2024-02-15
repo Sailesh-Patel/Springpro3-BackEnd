@@ -12,7 +12,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.server.LocalServerPort;
@@ -31,14 +30,11 @@ public class PropertyTest {
 	@LocalServerPort
 	private int port;
 
-	private WebDriverWait wait;
-
 	@BeforeEach
 	void init() {
 		this.driver = new ChromeDriver();
 		this.driver.manage().window().maximize();
 		this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-		this.wait = new WebDriverWait(driver, Duration.ofSeconds(3));
 	}
 
 	@Test
@@ -128,10 +124,6 @@ public class PropertyTest {
 		String propertyImage = "https://upload.wikimedia.org/wikipedia/en/c/ca/742_Evergreen_Terrace.png";
 		WebElement image = this.driver.findElement(By.xpath("/html/body/div/div/div/div/form[1]/input[6]"));
 		image.sendKeys(propertyImage);
-
-//		WebElement submitButtonScroll = this.driver
-//				.findElement(By.xpath("/html/body/div/div/div/div/form[1]/div[3]/button"));
-//		this.driver.executeScript("arguments[0].scrollIntoView(true);", submitButtonScroll);
 
 		WebElement submit = this.driver.findElement(By.xpath("/html/body/div/div/div/div/form[1]/div[3]/button"));
 		submit.click();

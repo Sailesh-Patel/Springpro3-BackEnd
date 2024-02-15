@@ -68,9 +68,10 @@ public class BuyerTest {
 		WebElement submit = this.driver
 				.findElement(By.cssSelector("#root > div > div > div > fieldset > form > div > button"));
 		submit.click();
+		Thread.sleep(1000);
 
-		WebElement displaybuyers = this.driver.findElement(By.cssSelector("#root > div > div > div > button"));
-		displaybuyers.click();
+		WebElement displayBuyers = this.driver.findElement(By.cssSelector("#root > div > div > div > button"));
+		displayBuyers.click();
 		Thread.sleep(1000);
 
 		WebElement resultTitle = this.driver
